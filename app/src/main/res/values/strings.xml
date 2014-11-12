@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CharaApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="chara">Chara</string>
+    <string name="username">Username</string>
+    <string name="login_password">Password</string>
+    <string name="login">Login</string>
+    <string name="test_queue_item_num_people">10 people</string>
+    <string name="test_queue_item_name">Queue Name</string>
+    <string name="test_queue_item_course_number">225</string>
+    <string name="take_student">Take Student</string>
+    <string name="leave_queue">Leave Queue</string>
+    <string name="issue_comment_hint">Comment...</string>
+    <string name="test_student_name">Greg Jennings</string>
+    <string name="test_student_room_number">SC 0220</string>
+    <string name="submit">Submit</string>
+    <string name="snooze">Snooze</string>
+    <string name="title_activity_student">StudentActivity</string>
+
+</resources>

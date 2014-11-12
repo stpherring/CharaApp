@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/list_item_margin"
+    android:paddingRight="@dimen/list_item_margin"
+    android:paddingTop="@dimen/list_item_vertical_padding"
+    android:paddingBottom="@dimen/list_item_vertical_padding">
+
+    <TextView
+        android:id="@+id/queue_item_course_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingRight="@dimen/list_item_margin"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/list_item_title_text_size"
+        android:text="@string/test_queue_item_course_number"/>
+    <TextView
+        android:id="@+id/queue_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/queue_item_course_number"
+        android:textSize="@dimen/list_item_title_text_size"
+        android:text="@string/test_queue_item_name"/>
+    <TextView
+        android:id="@+id/queue_item_num_people"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/queue_item_course_number"
+        android:layout_below="@id/queue_item_name"
+        android:text="@string/test_queue_item_num_people"/>
+
+</RelativeLayout>
