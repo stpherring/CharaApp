@@ -1,8 +1,8 @@
 {
     "burck1": {
         "netid": "burck1",
-        "name": "Alex",
-        "password": "abc",
+        "name": "Alex Burck",
+        "password": "password",
         "available_queues": [
             "225a",
             "225b"
@@ -11,52 +11,52 @@
             "225a",
             "225b"
         ],
-        "active_entry": "asdlka" // null by default, changes to entry_id when ta takes the entry
+        "active_entry": null // null by default, changes to entry_id when ta takes the entry
     },
     "llicari2": {
         "netid": "llicari2",
-        "name": "Laura",
-        "password": "123",
+        "name": "Laura Licari",
+        "password": "password",
         "available_queues": [
             "225a"
         ],
         "active_queues": [
             "225a"
         ],
-        "active_entry": "kjvb" // null by default, changes to entry_id when ta takes the entry
+        "active_entry": null
     },
     "whennes2": {
         "netid": "whennes2",
-        "name": "Will",
-        "password": "xyz",
+        "name": "Will Hennessy",
+        "password": "password",
         "available_queues": [
             "233a"
         ],
         "active_queues": [
             "233a"
         ],
-        "active_entry": null // null by default, changes to entry_id when ta takes the entry
+        "active_entry": null
     },
     "sgherri2": {
         "netid": "sgherri2",
-        "name": "Stevee",
-        "password": ",,,",
+        "name": "Steve Herring",
+        "password": "password",
         "available_queues": [
             "225a"
         ],
         "active_queues": [
             "225a"
         ],
-        "active_entry": null // null by default, changes to entry_id when ta takes the entry
+        "active_entry": null
     },
     "fuss1": {
         "netid": "fuss1",
-        "name": "Fuss",
-        "password": "poop",
+        "name": "Jacob Fuss",
+        "password": "password",
         "available_queues": [
             "233a"
         ],
         "active_queues": [],
-        "active_entry": null // null by default, changes to entry_id when ta takes the entry
+        "active_entry": null
     }
 }
