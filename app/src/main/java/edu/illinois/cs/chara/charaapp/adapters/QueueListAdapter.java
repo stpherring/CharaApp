@@ -28,6 +28,7 @@ public class QueueListAdapter extends BaseAdapter {
 
     public void setData(List<QueueListElement> data) {
         this.data = data;
+        this.notifyDataSetChanged();
     }
 
     @Override
@@ -36,7 +37,7 @@ public class QueueListAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public QueueListElement getItem(int position) {
         return data.get(position);
     }
 
@@ -65,11 +66,11 @@ public class QueueListAdapter extends BaseAdapter {
         QueueListElement element = data.get(position);
         String number = element.getNumber();
         String name = element.getName();
-        String numStudents = element.getNumStudents();
+        int numTAs = element.getNumTAs();
 
         holder.number.setText(number);
         holder.name.setText(name);
-        holder.numStudents.setText(numStudents);
+        holder.numStudents.setText(numTAs + " TAs in queue");
 
         return convertView;
     }

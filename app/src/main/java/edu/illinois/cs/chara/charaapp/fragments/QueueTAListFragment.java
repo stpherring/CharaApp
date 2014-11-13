@@ -32,17 +32,18 @@ public class QueueTAListFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        List<String> data = makeFakeData();
+        String[] TAs = this.getActivity().getIntent().getExtras().getStringArray("TAs");
+        List<String> data = makeFakeData(TAs);
         TAListAdapter adapter = new TAListAdapter(this.getActivity());
         adapter.setData(data);
         getListView().setAdapter(adapter);
     }
 
-    private List<String> makeFakeData() {
+    private List<String> makeFakeData(String[] TAs) {
 
         List<String> data = new ArrayList<String>();
-        for(int i = 0; i < 2; i++) {
-            data.add("Avi Prasad");
+        for(int i = 0; i < TAs.length; i++) {
+            data.add(TAs[i]);
         }
 
         return data;

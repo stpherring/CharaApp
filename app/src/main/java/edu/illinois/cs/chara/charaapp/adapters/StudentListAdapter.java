@@ -28,6 +28,7 @@ public class StudentListAdapter extends BaseAdapter {
 
     public void setData(List<StudentListElement> data) {
         this.data = data;
+        notifyDataSetChanged();
     }
 
     @Override

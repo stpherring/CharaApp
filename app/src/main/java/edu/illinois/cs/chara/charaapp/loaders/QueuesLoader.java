@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.illinois.cs.chara.charaapp.objects.QueueListElement;
@@ -35,9 +36,10 @@ public class QueuesLoader extends AsyncTaskLoader<List<QueueListElement>> {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+//        boolean loginSuccess = false;
 
         data = JsonUtils.loadJSONFromAsset(mContext, QUEUES_FILE_NAME);
-        boolean loginSuccess = false;
+        ArrayList<QueueListElement> queueListElements = new ArrayList<QueueListElement>();
 
         if (data != null) {
 
@@ -45,7 +47,11 @@ public class QueuesLoader extends AsyncTaskLoader<List<QueueListElement>> {
                 JSONObject queuesObj = new JSONObject(data);
                 // error is thrown and caught if netid is not found
                 JSONArray queuesArr = queuesObj.getJSONArray("queues");
-
+                for(int i = 0; i < queuesArr.length(); i++) {
+                    JSONObject jsonObject = queuesArr.getJSONObject(i);
+                    QueueListElement queue = parseQueue(jsonObject);
+                    queueListElements.add(queue);
+                }
                 // TODO do something/load for each queue in the array
 
             } catch(JSONException j) {
@@ -54,6 +60,21 @@ public class QueuesLoader extends AsyncTaskLoader<List<QueueListElement>> {
                 e.printStackTrace();
             }
         }
-        return null;
+        return queueListElements;
     }
+
+    private QueueListElement parseQueue(JSONObject jsonObject) throws JSONException {
+        String name = jsonObject.getString("name");
+        String courseId = jsonObject.getString("course_id");
+        JSONArray activeTAsArr = jsonObject.getJSONArray("active_tas");
+        String[] taList = new String[activeTAsArr.length()];
+        for(int i = 0; i < activeTAsArr.length(); i++) {
+            taList[i] = activeTAsArr.getString(i);
+        }
+
+        return new QueueListElement(courseId, name, taList);
+
+    }
+
+
 }

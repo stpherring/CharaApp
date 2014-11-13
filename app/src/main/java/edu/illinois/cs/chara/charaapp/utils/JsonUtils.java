@@ -1,6 +1,7 @@
 package edu.illinois.cs.chara.charaapp.utils;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,13 +11,15 @@ import java.io.InputStream;
  */
 public class JsonUtils {
 
+    private static final String TAG = "JsonUtils";
     /*
      * Given a file name from the assets/ folder, read it and return its contents
      */
     public static String loadJSONFromAsset(Context context, String file_name) {
         String json = null;
         try {
-            InputStream inputStream = context.getAssets().open("/"+file_name);
+            Log.d(TAG, context.getAssets().toString());
+            InputStream inputStream = context.getAssets().open(file_name);
             int size = inputStream.available();
             byte[] buffer = new byte[size];
             inputStream.read(buffer);

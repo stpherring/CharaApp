@@ -11,7 +11,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import edu.illinois.cs.chara.charaapp.R;
+import edu.illinois.cs.chara.charaapp.utils.JsonUtils;
 
 
 public class LoginActivity extends ActionBarActivity {
@@ -34,6 +38,7 @@ public class LoginActivity extends ActionBarActivity {
                 String password = passwordText.getText().toString();
                 if(verifyLogin(username, password)) {
                     Intent queueListIntent = new Intent(loginContext, QueueListActivity.class);
+                    queueListIntent.putExtra("username", username);
                     startActivity(queueListIntent);
                 }
                 else {
@@ -47,25 +52,24 @@ public class LoginActivity extends ActionBarActivity {
      * Return true if username is a TA's netid and if the password matches.
      */
     private boolean verifyLogin(String username, String password) {
-        return true;
         // TODO - fix login. FileNotFoundError
-//        String data = JsonUtils.loadJSONFromAsset(this, TAS_FILE_NAME);
-//        boolean loginSuccess = false;
-//
-//        if (data != null) {
-//            try {
-//                JSONObject TAObject = new JSONObject(data);
-//                JSONObject userObject = TAObject.getJSONObject(username);
-//                // error is thrown and caught if netid is not found
-//                if (userObject.getString("password").equals(password))
-//                    loginSuccess = true;
-//            } catch(JSONException j) {
-//                j.printStackTrace();
-//            } catch(NullPointerException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        return loginSuccess;
+        String data = JsonUtils.loadJSONFromAsset(this, TAS_FILE_NAME);
+        boolean loginSuccess = false;
+
+        if (data != null) {
+            try {
+                JSONObject TAObject = new JSONObject(data);
+                JSONObject userObject = TAObject.getJSONObject(username);
+                // error is thrown and caught if netid is not found
+                if (userObject.getString("password").equals(password))
+                    loginSuccess = true;
+            } catch(JSONException j) {
+                j.printStackTrace();
+            } catch(NullPointerException e) {
+                e.printStackTrace();
+            }
+        }
+        return loginSuccess;
     }
 
 

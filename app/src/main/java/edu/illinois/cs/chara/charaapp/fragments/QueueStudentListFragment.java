@@ -2,6 +2,8 @@ package edu.illinois.cs.chara.charaapp.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.Loader;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +13,15 @@ import java.util.List;
 
 import edu.illinois.cs.chara.charaapp.R;
 import edu.illinois.cs.chara.charaapp.adapters.StudentListAdapter;
+import edu.illinois.cs.chara.charaapp.loaders.StudentLoader;
 import edu.illinois.cs.chara.charaapp.objects.StudentListElement;
 
 /**
  * Created by Stephen on 10/22/2014.
  */
-public class QueueStudentListFragment extends ListFragment {
+public class QueueStudentListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<List<StudentListElement>> {
+
+    private StudentListAdapter adapter;
 
     public static QueueStudentListFragment newInstance() {
         return new QueueStudentListFragment();
@@ -33,19 +38,24 @@ public class QueueStudentListFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        StudentListAdapter adapter = new StudentListAdapter(this.getActivity());
-        List<StudentListElement> data = makeFakeData();
-        adapter.setData(data);
+        adapter = new StudentListAdapter(this.getActivity());
         getListView().setAdapter(adapter);
+        this.getLoaderManager().initLoader(0, this.getActivity().getIntent().getExtras(), this).forceLoad();
     }
 
-    private List<StudentListElement> makeFakeData() {
+    @Override
+    public Loader<List<StudentListElement>> onCreateLoader(int id, Bundle args) {
+        return new StudentLoader(this.getActivity(), args.getString("queue_id"));
+    }
 
-        List<StudentListElement> data = new ArrayList<StudentListElement>();
-        for(int i = 0; i < 10; i++) {
-            data.add(new StudentListElement("Greg Jennings", "SC 0220"));
-        }
+    @Override
+    public void onLoadFinished(Loader<List<StudentListElement>> loader, List<StudentListElement> data) {
 
-        return data;
+        adapter.setData(data);
+    }
+
+    @Override
+    public void onLoaderReset(Loader<List<StudentListElement>> loader) {
+
     }
 }

@@ -1,0 +1,65 @@
+{
+    "queues": [
+        {
+            "id": "225",
+            "name": "Office Hours",
+            "course_id": "225",
+            "active_entry_ids": [
+            ],
+            "pending_entry_ids": [
+                "asdlka",
+                "kjvb",
+                "awejr",
+                "akvjs",
+                "sdfglkj"
+            ],
+            "active_tas": [
+                "burck1",
+                "llicari2",
+                "sgherri2"
+            ],
+            "possible_tas": [
+                "burck1",
+                "llicari2",
+                "sgherri2"
+            ]
+        },
+        {
+            "id": "225_music",
+            "name": "Music",
+            "course_id": "225",
+            "active_entry_ids": [
+            ],
+            "pending_entry_ids": [
+                "kjvb",
+                "sdfglkj"
+            ],
+            "active_tas": [
+                "burck1"
+            ],
+            "possible_tas": [
+                "burck1"
+            ]
+        },
+        {
+            "id": "233a",
+            "name": "Office Hours",
+            "course_id": "233",
+            "active_entry_ids": [
+            ],
+            "pending_entry_ids": [
+                "werlit",
+                "kwejrt",
+                "xcvoib",
+                "qenrjtk"
+            ],
+            "active_tas": [
+                "whennes2"
+            ],
+            "possible_tas": [
+                "whennes2",
+                "fuss1"
+            ]
+        }
+    ]
+}

@@ -7,10 +7,12 @@ public class StudentListElement {
 
     private String name;
     private String roomNumber;
+    private String topic;
 
-    public StudentListElement(String name, String roomNumber) {
+    public StudentListElement(String name, String roomNumber, String topic) {
         this.name = name;
         this.roomNumber = roomNumber;
+        this.topic = topic;
     }
 
     public String getName() {
@@ -19,5 +21,9 @@ public class StudentListElement {
 
     public String getRoomNumber() {
         return roomNumber;
+    }
+
+    public String getTopic() {
+        return topic;
     }
 }

@@ -7,12 +7,15 @@ public class QueueListElement {
 
     private String number;
     private String name;
-    private String numStudents;
+    private String[] TAs;
+    private int numTAs;
 
-    public QueueListElement(String number, String name, String numStudents) {
+    public QueueListElement(String number, String name, String[] TAs) {
         this.number = number;
         this.name = name;
-        this.numStudents = numStudents;
+        this.TAs = TAs;
+        this.numTAs = TAs.length;
+
     }
 
     public String getNumber() {
@@ -23,7 +26,11 @@ public class QueueListElement {
         return name;
     }
 
-    public String getNumStudents() {
-        return numStudents;
+    public int getNumTAs() {
+        return numTAs;
+    }
+
+    public String[] getTAs() {
+        return TAs;
     }
 }
