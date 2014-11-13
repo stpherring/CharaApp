@@ -21,10 +21,12 @@ public class QueuesLoader extends AsyncTaskLoader<List<QueueListElement>> {
 
     private static final String QUEUES_FILE_NAME = "Queues.json";
     private Context mContext;
+    private String TANetId;
 
-    public QueuesLoader(Context context, String TANetid) {
+    public QueuesLoader(Context context, String TANetId) {
         super(context);
         mContext = context;
+        this.TANetId = TANetId;
     }
 
     @Override
@@ -57,7 +59,12 @@ public class QueuesLoader extends AsyncTaskLoader<List<QueueListElement>> {
                 for(int i = 0; i < queuesArr.length(); i++) {
                     JSONObject jsonObject = queuesArr.getJSONObject(i);
                     QueueListElement queue = parseQueue(jsonObject);
-                    queueListElements.add(queue);
+                    String[] tas = queue.getTAs();
+                    for(int j = 0; j < tas.length; j++) {
+                        if(tas[j].equals(TANetId)) {
+                            queueListElements.add(queue);
+                        }
+                    }
                 }
                 // TODO do something/load for each queue in the array
 

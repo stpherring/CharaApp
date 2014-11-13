@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.illinois.cs.chara.charaapp.R;
+import edu.illinois.cs.chara.charaapp.holders.DataHolder;
 import edu.illinois.cs.chara.charaapp.utils.JsonUtils;
 
 
@@ -71,6 +72,13 @@ public class LoginActivity extends ActionBarActivity {
             }
         }
         return loginSuccess;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        DataHolder holder = DataHolder.getInstance();
+        holder.setQueues(null);
     }
 
 
