@@ -13,6 +13,7 @@ import java.util.List;
 
 import edu.illinois.cs.chara.charaapp.R;
 import edu.illinois.cs.chara.charaapp.adapters.StudentListAdapter;
+import edu.illinois.cs.chara.charaapp.holders.DataHolder;
 import edu.illinois.cs.chara.charaapp.loaders.StudentLoader;
 import edu.illinois.cs.chara.charaapp.objects.StudentListElement;
 
@@ -22,6 +23,7 @@ import edu.illinois.cs.chara.charaapp.objects.StudentListElement;
 public class QueueStudentListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<List<StudentListElement>> {
 
     private StudentListAdapter adapter;
+    private String queueId;
 
     public static QueueStudentListFragment newInstance() {
         return new QueueStudentListFragment();
@@ -31,8 +33,7 @@ public class QueueStudentListFragment extends ListFragment implements LoaderMana
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_queue_student_list, null);
-        return view;
+        return inflater.inflate(R.layout.fragment_queue_student_list, null);
     }
 
     @Override
@@ -40,17 +41,27 @@ public class QueueStudentListFragment extends ListFragment implements LoaderMana
         super.onActivityCreated(savedInstanceState);
         adapter = new StudentListAdapter(this.getActivity());
         getListView().setAdapter(adapter);
-        this.getLoaderManager().initLoader(0, this.getActivity().getIntent().getExtras(), this).forceLoad();
+        Bundle args = this.getActivity().getIntent().getExtras();
+        queueId = args.getString("queue_id");
+        this.getLoaderManager().initLoader(0, null, this).forceLoad();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // TODO: This is a lazy way to notify that the student list has changed.  Fix this in the future.
+        adapter.notifyDataSetChanged();
     }
 
     @Override
     public Loader<List<StudentListElement>> onCreateLoader(int id, Bundle args) {
-        return new StudentLoader(this.getActivity(), args.getString("queue_id"));
+        return new StudentLoader(this.getActivity(), queueId);
     }
 
     @Override
     public void onLoadFinished(Loader<List<StudentListElement>> loader, List<StudentListElement> data) {
-
+        DataHolder holder = DataHolder.getInstance();
+        holder.setStudents(queueId, data);
         adapter.setData(data);
     }
 

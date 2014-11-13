@@ -9,8 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.List;
 
 import edu.illinois.cs.chara.charaapp.R;
+import edu.illinois.cs.chara.charaapp.holders.DataHolder;
+import edu.illinois.cs.chara.charaapp.objects.StudentListElement;
 
 
 public class StudentActivity extends ActionBarActivity {
@@ -19,12 +24,29 @@ public class StudentActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student);
+
+        Bundle extras = this.getIntent().getExtras();
+        String name = extras.getString("name");
+        String location = extras.getString("location");
+        String topic = extras.getString("topic");
+        final String queueId = extras.getString("queue_id");
+
+        TextView nameText = (TextView) findViewById(R.id.student_name);
+        TextView locationText = (TextView) findViewById(R.id.student_location);
+        TextView topicText = (TextView) findViewById(R.id.student_issue_description);
+
+        nameText.setText(name);
+        locationText.setText(location);
+        topicText.setText(topic);
+
         Button submitButton = (Button) findViewById(R.id.student_submit);
         Button snoozeButton = (Button) findViewById(R.id.student_snooze);
         final Activity studentActivity = this;
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                List<StudentListElement> students = DataHolder.getStudents(queueId);
+                students.remove(0);
                 finish();
             }
         });

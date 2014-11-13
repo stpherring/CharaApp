@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.illinois.cs.chara.charaapp.holders.DataHolder;
 import edu.illinois.cs.chara.charaapp.objects.StudentListElement;
 import edu.illinois.cs.chara.charaapp.utils.JsonUtils;
 
@@ -31,6 +32,12 @@ public class StudentLoader extends AsyncTaskLoader<List<StudentListElement>> {
     @Override
     public List<StudentListElement> loadInBackground() {
 
+        DataHolder holder = DataHolder.getInstance();
+        List<StudentListElement> students = holder.getStudents(queueId);
+        if(students != null) {
+            return students;
+        }
+
         String data = JsonUtils.loadJSONFromAsset(context, ENTRIES_FILE_NAME);
         ArrayList<StudentListElement> studentListElements = new ArrayList<StudentListElement>();
 
@@ -43,8 +50,6 @@ public class StudentLoader extends AsyncTaskLoader<List<StudentListElement>> {
                     StudentListElement student = parseStudent(jsonObject);
                     studentListElements.add(student);
                 }
-                // TODO do something/load for each queue in the array
-
             } catch(JSONException j) {
                 j.printStackTrace();
             } catch(NullPointerException e) {
