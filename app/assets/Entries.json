@@ -1,0 +1,39 @@
+{
+    "asdlka": {
+        "id": "asdlka",
+        "student": {
+            "netid": "netid1",
+            "name": "My Name" // this is only here as a convienence, also in Students[netid]
+        },
+        "topic": "What is a binary heap?",
+        "location": "SC 0220",
+        "active_ta": "burck1", // null by default, changes to ta's netid when ta takes the entry
+        "rating": null // null until the ta is done
+    },
+    "kjvb": {
+        "id": "kjvb",
+        "student": {
+            "netid": "netid2",
+            "name": "Your Name" // this is only here as a convienence, also in Students[netid]
+        },
+        "topic": "What is a stack?",
+        "location": "SC 0224",
+        "active_ta": "llicari2", // null by default, changes to ta's netid when ta takes the entry
+        "rating": null // null until the ta is done
+    },
+    "awejr": {
+        "id": "awejr",
+        "student": {
+            "netid": "netid3",
+            "name": "Her Name" // this is only here as a convienence, also in Students[netid]
+        },
+        "topic": "I am batman!",
+        "location": "Lobby",
+        "active_ta": null, // null by default, changes to ta's netid when ta takes the entry
+        "rating": {  // null until the ta is done
+            "value": "low", // low || medium || high
+            "comment": "This is a comment.",
+            "date_time": "20140515 15:36:14"
+        }
+    }
+}

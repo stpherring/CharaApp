@@ -1,0 +1,10 @@
+{
+    "netid1": {
+        "netid": "netid1",
+        "name": "My Name"
+    },
+    "netid2": {
+        "netid": "netid2",
+        "name": "Your Name"
+    }
+}

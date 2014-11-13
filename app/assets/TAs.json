@@ -1,0 +1,62 @@
+{
+    "burck1": {
+        "netid": "burck1",
+        "name": "Alex",
+        "password": "abc",
+        "available_queues": [
+            "225a",
+            "225b"
+        ],
+        "active_queues": [
+            "225a",
+            "225b"
+        ],
+        "active_entry": "asdlka" // null by default, changes to entry_id when ta takes the entry
+    },
+    "llicari2": {
+        "netid": "llicari2",
+        "name": "Laura",
+        "password": "123",
+        "available_queues": [
+            "225a"
+        ],
+        "active_queues": [
+            "225a"
+        ],
+        "active_entry": "kjvb" // null by default, changes to entry_id when ta takes the entry
+    },
+    "whennes2": {
+        "netid": "whennes2",
+        "name": "Will",
+        "password": "xyz",
+        "available_queues": [
+            "233a"
+        ],
+        "active_queues": [
+            "233a"
+        ],
+        "active_entry": null // null by default, changes to entry_id when ta takes the entry
+    },
+    "sgherri2": {
+        "netid": "sgherri2",
+        "name": "Stevee",
+        "password": ",,,",
+        "available_queues": [
+            "225a"
+        ],
+        "active_queues": [
+            "225a"
+        ],
+        "active_entry": null // null by default, changes to entry_id when ta takes the entry
+    },
+    "fuss1": {
+        "netid": "fuss1",
+        "name": "Fuss",
+        "password": "poop",
+        "available_queues": [
+            "233a"
+        ],
+        "active_queues": [],
+        "active_entry": null // null by default, changes to entry_id when ta takes the entry
+    }
+}
