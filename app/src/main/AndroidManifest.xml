@@ -16,8 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.QueueActivity" />
-        <activity android:name=".activities.QueueListActivity" />
+        <activity
+            android:name=".activities.QueueActivity"
+            android:label="@string/title_activity_queue"/>
+        <activity
+            android:name=".activities.QueueListActivity"
+            android:label="@string/title_activity_queue_list"/>
         <activity
             android:name=".activities.StudentActivity"
             android:label="@string/title_activity_student" >

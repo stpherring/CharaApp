@@ -40,6 +40,7 @@ public class LoginActivity extends ActionBarActivity {
                     Intent queueListIntent = new Intent(loginContext, QueueListActivity.class);
                     queueListIntent.putExtra("username", username);
                     startActivity(queueListIntent);
+                    finish();
                 }
                 else {
                     Toast.makeText(loginContext, "Please enter a username and password", Toast.LENGTH_LONG).show();

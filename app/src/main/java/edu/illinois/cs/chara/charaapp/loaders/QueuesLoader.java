@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.illinois.cs.chara.charaapp.holders.DataHolder;
 import edu.illinois.cs.chara.charaapp.objects.QueueListElement;
 import edu.illinois.cs.chara.charaapp.utils.JsonUtils;
 
@@ -28,6 +29,12 @@ public class QueuesLoader extends AsyncTaskLoader<List<QueueListElement>> {
 
     @Override
     public List<QueueListElement> loadInBackground() {
+
+        List<QueueListElement> queues = DataHolder.getInstance().getQueues();
+        if(queues != null) {
+            return queues;
+        }
+
         String data = null;
 //        future use for loading server. see the HackIllinois git repo from last year
 //        try {

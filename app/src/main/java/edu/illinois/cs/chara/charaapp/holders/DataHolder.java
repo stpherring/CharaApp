@@ -3,6 +3,7 @@ package edu.illinois.cs.chara.charaapp.holders;
 import java.util.HashMap;
 import java.util.List;
 
+import edu.illinois.cs.chara.charaapp.objects.QueueListElement;
 import edu.illinois.cs.chara.charaapp.objects.StudentListElement;
 
 /**
@@ -18,6 +19,7 @@ public class DataHolder {
      */
 
     private static DataHolder holder = new DataHolder();
+    private static List<QueueListElement> queues;
     private static HashMap<String, List<StudentListElement>> studentQueueMap = new HashMap<String, List<StudentListElement>>();
 
     public static DataHolder getInstance() {
@@ -28,9 +30,16 @@ public class DataHolder {
         return studentQueueMap.get(queueId);
     }
 
+    public static List<QueueListElement> getQueues() {
+        return queues;
+    }
+
+    public static void setQueues(List<QueueListElement> data) {
+        queues = data;
+    }
+
     public static void setStudents(String queueId, List<StudentListElement> students) {
         studentQueueMap.put(queueId, students);
     }
-
 
 }

@@ -32,6 +32,7 @@ public class QueueSummaryFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_queue_summary, null);
 
         final String queueId = this.getActivity().getIntent().getExtras().getString("queue_id");
+        final String username = this.getActivity().getIntent().getExtras().getString("username");
 
         final Activity queueActivity = this.getActivity();
         Button takeStudent = (Button) view.findViewById(R.id.take_student);
@@ -47,6 +48,7 @@ public class QueueSummaryFragment extends Fragment {
                 studentActivityIntent.putExtra("name", student.getName());
                 studentActivityIntent.putExtra("location", student.getRoomNumber());
                 studentActivityIntent.putExtra("topic", student.getTopic());
+                studentActivityIntent.putExtra("username", username);
                 startActivity(studentActivityIntent);
             }
         });

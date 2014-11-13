@@ -19,5 +19,11 @@
     <string name="submit">Submit</string>
     <string name="snooze">Snooze</string>
     <string name="title_activity_student">StudentActivity</string>
+    <string name="logout">Log out</string>
+    <string name="leaveQueue">Leave queue</string>
+    <string name="close_queue">Close queue</string>
+    <string name="title_activity_queue_list">QueueListActivity</string>
+    <string name="title_activity_queue">QueueActivity</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

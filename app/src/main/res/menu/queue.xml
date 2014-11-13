@@ -1,15 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="edu.illinois.cs.chara.charaapp.activities.StudentActivity" >
+    tools:context="edu.illinois.cs.chara.charaapp.activities.QueueActivity">
     <item
         android:id="@+id/logout"
         android:title="@string/logout"
         android:orderInCategory="100"
         android:showAsAction="always"/>
     <item
-        android:id="@+id/leave_queue"
-        android:title="@string/leaveQueue"
-        android:orderInCategory="200"
+        android:id="@+id/close_queue"
+        android:title="@string/close_queue"
+        android:orderInCategory="300"
         android:showAsAction="always" />
+
 </menu>
