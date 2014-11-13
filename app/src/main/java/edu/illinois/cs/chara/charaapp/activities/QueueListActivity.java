@@ -8,12 +8,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.illinois.cs.chara.charaapp.R;
@@ -35,6 +36,7 @@ public class QueueListActivity extends ListActivity implements LoaderManager.Loa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue_list);
 
+        final QueueListActivity activity = this;
         queueListAdapter = new QueueListAdapter(this);
         getListView().setAdapter(queueListAdapter);
 
@@ -53,6 +55,48 @@ public class QueueListActivity extends ListActivity implements LoaderManager.Loa
                 queueIntent.putExtra("name", name);
                 queueIntent.putExtra("number", number);
                 startActivity(queueIntent);
+            }
+        });
+
+        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                String[] items = new String[]{"Edit queue name", "Delete queue"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(activity);
+                builder.setTitle("Options");
+                builder.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(which == 0) {
+                            LayoutInflater inflater = activity.getLayoutInflater();
+                            View editView = inflater.inflate(R.layout.dialog_edit_queue_name, null);
+                            AlertDialog.Builder editNameBuilder = new AlertDialog.Builder(activity);
+                            editNameBuilder.setTitle("Enter a new name for this queue");
+                            editNameBuilder.setView(editView);
+                            final EditText newNameText = (EditText) editView.findViewById(R.id.new_queue_name);
+                            editNameBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String newName = newNameText.getText().toString();
+                                    queueListAdapter.getData().get(position).setName(newName);
+                                    queueListAdapter.notifyDataSetChanged();
+                                }
+                            });
+                            editNameBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                            editNameBuilder.create().show();
+                        }
+                        if(which == 1) {
+                            showDeleteQueueDialog(position);
+                        }
+                    }
+                });
+                builder.create().show();
+                return true;
             }
         });
         Bundle args = this.getIntent().getExtras();
@@ -113,5 +157,27 @@ public class QueueListActivity extends ListActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(Loader<List<QueueListElement>> loader) {
 
+    }
+
+    private void showDeleteQueueDialog(final int position) {
+        AlertDialog.Builder confirmBuilder = new AlertDialog.Builder(this);
+        confirmBuilder.setTitle("Delete Queue?");
+        confirmBuilder.setMessage("Are you sure you want to delete this queue?");
+        confirmBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                List<QueueListElement> queues = queueListAdapter.getData();
+                queues.remove(position);
+                queueListAdapter.notifyDataSetChanged();
+                DataHolder.getInstance().setQueues(queues);
+            }
+        });
+        confirmBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        confirmBuilder.create().show();
     }
 }

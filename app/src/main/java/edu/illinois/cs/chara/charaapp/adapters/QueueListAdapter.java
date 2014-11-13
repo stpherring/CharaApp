@@ -75,6 +75,10 @@ public class QueueListAdapter extends BaseAdapter {
         return convertView;
     }
 
+    public List<QueueListElement> getData() {
+        return data;
+    }
+
     private class ViewHolder {
         TextView number;
         TextView name;

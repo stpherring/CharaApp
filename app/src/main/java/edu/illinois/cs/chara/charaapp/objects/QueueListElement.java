@@ -33,4 +33,8 @@ public class QueueListElement {
     public String[] getTAs() {
         return TAs;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }

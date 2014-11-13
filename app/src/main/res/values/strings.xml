@@ -25,5 +25,6 @@
     <string name="title_activity_queue_list">QueueListActivity</string>
     <string name="title_activity_queue">QueueActivity</string>
     <string name="refresh">Refresh</string>
+    <string name="queue_name">Queue Name</string>
 
 </resources>
