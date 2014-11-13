@@ -10,19 +10,19 @@
             "id": "2",
             "name": "Joe"
             "topic": "Arrays",
-            "location": "",
+            "location": "SC 0218",
         },
         {
             "id": "3",
-            "name": ""
-            "topic": "",
-            "location": "",
+            "name": "Allison"
+            "topic": "mp4",
+            "location": "SC 0220",
         },
         {
             "id": "4",
-            "name": ""
-            "topic": "",
-            "location": "",
+            "name": "Sarah"
+            "topic": "mp4 memory leaks",
+            "location": "Lobby",
         },
     ],
 
