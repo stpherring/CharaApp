@@ -2,8 +2,8 @@ package edu.illinois.cs.chara.charaapp.activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +15,8 @@ import edu.illinois.cs.chara.charaapp.R;
 
 
 public class LoginActivity extends ActionBarActivity {
+
+    private static final String TAS_FILE_NAME = "TAs.json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class LoginActivity extends ActionBarActivity {
             public void onClick(View v) {
                 String username = usernameText.getText().toString();
                 String password = passwordText.getText().toString();
-                if(loginSuccess(username, password)) {
+                if(verifyLogin(username, password)) {
                     Intent queueListIntent = new Intent(loginContext, QueueListActivity.class);
                     startActivity(queueListIntent);
                 }
@@ -41,8 +43,29 @@ public class LoginActivity extends ActionBarActivity {
         });
     }
 
-    private boolean loginSuccess(String username, String password) {
-        return username.length() > 0 && password.length() > 0;
+    /*
+     * Return true if username is a TA's netid and if the password matches.
+     */
+    private boolean verifyLogin(String username, String password) {
+        return true;
+        // TODO - fix login. FileNotFoundError
+//        String data = JsonUtils.loadJSONFromAsset(this, TAS_FILE_NAME);
+//        boolean loginSuccess = false;
+//
+//        if (data != null) {
+//            try {
+//                JSONObject TAObject = new JSONObject(data);
+//                JSONObject userObject = TAObject.getJSONObject(username);
+//                // error is thrown and caught if netid is not found
+//                if (userObject.getString("password").equals(password))
+//                    loginSuccess = true;
+//            } catch(JSONException j) {
+//                j.printStackTrace();
+//            } catch(NullPointerException e) {
+//                e.printStackTrace();
+//            }
+//        }
+//        return loginSuccess;
     }
 
 
