@@ -63,7 +63,9 @@ public class StudentActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.student, menu);
-        getActionBar().setTitle("Student");
+        getSupportActionBar().setTitle("Student");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 
@@ -74,6 +76,9 @@ public class StudentActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         final StudentActivity activity = this;
+        if(id == android.R.id.home) {
+            showAlertDialog();
+        }
         if(id == R.id.logout) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Log out");

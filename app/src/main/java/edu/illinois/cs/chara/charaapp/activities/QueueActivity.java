@@ -48,6 +48,8 @@ public class QueueActivity extends FragmentActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.queue, menu);
         getActionBar().setTitle(number + " " + name);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 
@@ -79,6 +81,9 @@ public class QueueActivity extends FragmentActivity {
             });
             builder.create().show();
 
+        }
+        if(id == android.R.id.home) {
+            finish();
         }
         if (id == R.id.leave_queue) {
             final String username = this.getIntent().getExtras().getString("username");

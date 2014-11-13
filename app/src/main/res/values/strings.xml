@@ -26,5 +26,6 @@
     <string name="title_activity_queue">QueueActivity</string>
     <string name="refresh">Refresh</string>
     <string name="queue_name">Queue Name</string>
+    <string name="greg_jennings">I put the team on my back</string>
 
 </resources>
