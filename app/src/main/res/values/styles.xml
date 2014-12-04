@@ -5,4 +5,13 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Widget.MyTitlepageIndicator">
+        <item name="footerColor">#8E24AA</item>
+        <item name="footerIndicatorStyle">underline</item>
+        <item name="footerIndicatorHeight">3dp</item>
+        <item name="footerLineHeight">1.5dp</item>
+        <item name="footerPadding">6dp</item>
+        <item name="selectedColor">#ffffffff</item>
+    </style>
+
 </resources>

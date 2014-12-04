@@ -3,4 +3,8 @@
     <color name="cs225color">#0000ff</color>
     <color name="cs233color">#00ff00</color>
     <color name="cs241color">#ff0000</color>
+
+    <color name="q_primary">#8E24AA</color>
+    <color name="q_light">#F3E5F5</color>
+    <color name="q_dark">#4A148C</color>
 </resources>
