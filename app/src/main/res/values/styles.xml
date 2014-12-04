@@ -1,8 +1,17 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle" tools:ignore="NewApi">@style/AppActionBar</item>
+        <item name="actionBarStyle">@style/AppActionBar</item>
+        <item name="android:textColor">@color/q_dark</item>
+        <item name="android:actionMenuTextColor" tools:ignore="NewApi">@color/q_white</item>
+        <item name="actionMenuTextColor">@color/q_white</item>
+    </style>
+
+    <style name="AppActionBar" parent="Theme.AppCompat.Light">
+        <item name="android:background" tools:ignore="NewApi">@color/q_primary</item>
+        <item name="background">@color/q_primary</item>
     </style>
 
     <style name="Widget.MyTitlepageIndicator">

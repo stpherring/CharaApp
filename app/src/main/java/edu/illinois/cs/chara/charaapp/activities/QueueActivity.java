@@ -5,10 +5,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+
 
 import com.viewpagerindicator.TitlePageIndicator;
 
@@ -22,7 +23,7 @@ import edu.illinois.cs.chara.charaapp.objects.QueueListElement;
 /**
  * Created by Stephen on 10/22/2014.
  */
-public class QueueActivity extends FragmentActivity {
+public class QueueActivity extends ActionBarActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class QueueActivity extends FragmentActivity {
         queueTitlePageIndicator.setViewPager(queuePager);
         queueTitlePageIndicator.setTextColor(Color.BLACK);
         queueTitlePageIndicator.setSelectedColor(Color.BLACK);
+        getSupportActionBar().setTitle("225 Office Hours");//number + " " + name);
+
     }
 
     @Override
@@ -47,9 +50,8 @@ public class QueueActivity extends FragmentActivity {
         String number = extras.getString("number");
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.queue, menu);
-        getActionBar().setTitle(number + " " + name);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 
