@@ -8,12 +8,14 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.Loader;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import java.util.List;
 
@@ -26,22 +28,25 @@ import edu.illinois.cs.chara.charaapp.objects.QueueListElement;
 /**
  * Created by Stephen on 10/22/2014.
  */
-public class QueueListActivity extends ListActivity implements LoaderManager.LoaderCallbacks<List<QueueListElement>> {
+public class QueueListActivity extends ActionBarActivity implements LoaderManager.LoaderCallbacks<List<QueueListElement>> {
 
     private QueueListAdapter queueListAdapter;
     private String username;
+    private ListView listView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue_list);
 
+        listView = (ListView) findViewById(R.id.queue_list);
+
         final QueueListActivity activity = this;
         queueListAdapter = new QueueListAdapter(this);
-        getListView().setAdapter(queueListAdapter);
+        listView.setAdapter(queueListAdapter);
 
         final Context queueListContext = this;
-        getListView().setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 QueueListElement element = queueListAdapter.getItem(position);
@@ -58,7 +63,7 @@ public class QueueListActivity extends ListActivity implements LoaderManager.Loa
             }
         });
 
-        getListView().setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 String[] items = new String[]{"Edit queue name", "Delete queue"};
@@ -108,7 +113,8 @@ public class QueueListActivity extends ListActivity implements LoaderManager.Loa
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.queue_list, menu);
-        getActionBar().setTitle("Queues");
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Queues");
         return true;
     }
 

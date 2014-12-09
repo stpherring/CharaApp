@@ -30,6 +30,10 @@ public class QueueActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_queue);
 
+        Bundle extras = this.getIntent().getExtras();
+        String name = extras.getString("name");
+        String number = extras.getString("number");
+
         ViewPager queuePager = (ViewPager) findViewById(R.id.queue_pager);
         QueuePagerAdapter adapter = new QueuePagerAdapter(getSupportFragmentManager());
         queuePager.setAdapter(adapter);
@@ -39,19 +43,17 @@ public class QueueActivity extends ActionBarActivity {
         queueTitlePageIndicator.setViewPager(queuePager);
         queueTitlePageIndicator.setTextColor(Color.BLACK);
         queueTitlePageIndicator.setSelectedColor(Color.BLACK);
-        getSupportActionBar().setTitle("225 Office Hours");//number + " " + name);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle(number + " " + name);
 
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        Bundle extras = this.getIntent().getExtras();
-        String name = extras.getString("name");
-        String number = extras.getString("number");
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.queue, menu);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 

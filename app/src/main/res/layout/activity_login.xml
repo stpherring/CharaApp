@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
-        android:text="@string/chara"
+        android:text="@string/q"
         android:textSize="36sp" />
 
     <EditText
@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:background="@drawable/q_button"
         android:text="@string/login"/>
 
 </LinearLayout>

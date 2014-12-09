@@ -63,6 +63,7 @@ public class StudentActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.student, menu);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setTitle("Student");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

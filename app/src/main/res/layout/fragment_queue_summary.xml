@@ -16,9 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:text="@string/take_student"
-        android:textColor="@color/q_dark"
-        android:background="@color/q_light"
-        android:shadowColor="@color/q_primary"/>
+        android:background="@drawable/q_button"/>
 
     <Button
         android:id="@+id/leave_queue"
@@ -26,9 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:text="@string/leave_queue"
-        android:textColor="@color/q_dark"
-        android:background="@color/q_light"
-        android:shadowColor="@color/q_primary"/>
+        android:background="@drawable/q_button"/>
 
     <ImageView
         android:layout_width="wrap_content"

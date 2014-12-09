@@ -8,4 +8,7 @@
     <color name="q_light">#E1BEE7</color>
     <color name="q_dark">#4A148C</color>
     <color name="q_white">#FFFFFF</color>
+    <color name="q_accent">#80CBC4</color>
+    <color name="q_accent_dark">#26A69A</color>
+    <color name="q_text">#DD000000</color>
 </resources>

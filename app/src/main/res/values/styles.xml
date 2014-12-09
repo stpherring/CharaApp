@@ -4,14 +4,15 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle" tools:ignore="NewApi">@style/AppActionBar</item>
         <item name="actionBarStyle">@style/AppActionBar</item>
-        <item name="android:textColor">@color/q_dark</item>
+        <item name="android:textColor">@color/q_text</item>
         <item name="android:actionMenuTextColor" tools:ignore="NewApi">@color/q_white</item>
         <item name="actionMenuTextColor">@color/q_white</item>
     </style>
 
-    <style name="AppActionBar" parent="Theme.AppCompat.Light">
+    <style name="AppActionBar" parent="Widget.AppCompat.ActionBar">
         <item name="android:background" tools:ignore="NewApi">@color/q_primary</item>
         <item name="background">@color/q_primary</item>
+        <item name="android:panelBackground">@color/q_white</item>
     </style>
 
     <style name="Widget.MyTitlepageIndicator">
@@ -22,5 +23,4 @@
         <item name="footerPadding">6dp</item>
         <item name="selectedColor">#ffffffff</item>
     </style>
-
 </resources>

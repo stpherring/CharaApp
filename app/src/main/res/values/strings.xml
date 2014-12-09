@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CharaApp</string>
+    <string name="app_name">Chara</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="chara">Chara</string>
@@ -27,5 +27,6 @@
     <string name="refresh">Refresh</string>
     <string name="queue_name">Queue Name</string>
     <string name="greg_jennings">I put the team on my back</string>
+    <string name="q">Q</string>
 
 </resources>
